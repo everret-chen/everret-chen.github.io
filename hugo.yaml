@@ -1,0 +1,160 @@
+# ===================================================================
+#  站点主配置
+#  主题：Stack v4.0.3（themes/hugo-theme-stack）
+#  说明：部署到 GitHub Pages 时，只需把 baseURL 改成你的实际地址
+# ===================================================================
+
+# 部署前改成：https://<你的用户名>.github.io/
+baseURL: https://example.com/
+locale: zh-cn
+title: 我的博客
+
+# 中文内容：开启后 .Summary / .WordCount 对中文断句才正确
+hasCJKLanguage: true
+defaultContentLanguage: zh-cn
+
+theme: hugo-theme-stack
+
+# 文章列表每页条数
+pagination:
+  pagerSize: 5
+
+# URL 结构：文章走 /p/<slug>/，独立页面走 /<slug>/
+permalinks:
+  post: /p/:slug/
+  page: /:slug/
+
+# 分类 + 标签两套 taxonomy（分类必开）
+taxonomies:
+  category: categories
+  tag: tags
+
+# 菜单项：分类页由 Hugo 依据 taxonomy 自动生成，不需要手写 content 页面
+menu:
+  main:
+    - identifier: categories
+      name: 分类
+      url: /categories/
+      weight: -80
+      params:
+        icon: categories
+
+# -------------------------------------------------------------------
+# 主题参数
+# -------------------------------------------------------------------
+params:
+  mainSections: [post]
+  rssFullContent: true
+  favicon: img/avatar.svg
+
+  # 按最后修改时间排序可选 lastmod；默认按日期
+  SortBy: default
+
+  footer:
+    since: 2025
+    customText: ""
+
+  dateFormat:
+    # Go 的时间格式串，中文站用「年-月-日」
+    published: "2006-01-02"
+    lastUpdated: "2006-01-02 15:04"
+
+  sidebar:
+    emoji: "🧭"
+    subtitle: "记录、复盘、再出发"
+    avatar: img/avatar.svg
+    compact: false
+
+  article:
+    headingAnchor: false
+    math: false
+    toc: true
+    readingTime: true
+    list:
+      showTags: true
+    license:
+      enabled: true
+      default: "本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议"
+    mermaid:
+      look: classic
+      lightTheme: default
+      darkTheme: dark
+
+  # -----------------------------------------------------------------
+  # 侧边栏小组件：首页显示搜索 / 归档 / 分类 / 标签云
+  # -----------------------------------------------------------------
+  widgets:
+    homepage:
+      - type: search
+      - type: archives
+        params:
+          limit: 5
+      - type: categories
+        params:
+          limit: 10
+      - type: tag-cloud
+        params:
+          limit: 10
+    page:
+      - type: toc
+
+  opengraph:
+    twitter:
+      site: ""
+      card: summary_large_image
+
+  # 暗色模式：跟随系统，可手动切换
+  colorScheme:
+    toggle: true
+    default: auto
+
+  imageProcessing:
+    autoOrient: false
+    content:
+      widths: [800, 1600, 2400]
+      enabled: true
+    thumbnail:
+      enabled: true
+
+  # -----------------------------------------------------------------
+  # 评论：Giscus（基于 GitHub Discussions，免费、无广告、无追踪）
+  # ⚠️ 上线前必须填 repoID / categoryID，否则评论区不显示。
+  #    获取方式见仓库根目录 README 的「启用评论」一节。
+  # -----------------------------------------------------------------
+  comments:
+    enabled: true
+    provider: giscus
+    giscus:
+      repo: "your-name/your-name.github.io"
+      repoID: ""
+      category: "Announcements"
+      categoryID: ""
+      mapping: pathname
+      lightTheme: light
+      darkTheme: dark_dimmed
+      reactionsEnabled: 1
+      emitMetadata: 0
+      inputPosition: top
+      lang: zh-CN
+      loading: lazy
+
+# -------------------------------------------------------------------
+# Markdown 渲染
+# -------------------------------------------------------------------
+markup:
+  goldmark:
+    renderer:
+      unsafe: true          # 允许正文内嵌 HTML
+  highlight:
+    noClasses: false
+    lineNos: true
+    codeFences: true
+  tableOfContents:
+    startLevel: 2
+    endLevel: 4
+    ordered: false
+
+# GitHub Actions 构建时把图片缓存放到 cacheDir，避免重复处理
+caches:
+  images:
+    dir: :cacheDir/images

@@ -1,0 +1,18 @@
+# Hugo 构建产物
+/public/
+/resources/_gen/
+/assets/hb/modules/
+
+# Hugo 自动生成的 IDE 辅助文件（含本机路径，不应入库）
+/assets/jsconfig.json
+
+# Hugo 缓存
+.hugo_build.lock
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# 主题以 submodule 方式引入时，themes/ 不忽略
