@@ -116,9 +116,13 @@ blog/
 
 ---
 
-## 五、启用评论（Giscus）
+## 五、启用评论（Giscus）——当前未启用
 
-评论用 Giscus，基于 GitHub Discussions，免费且无广告。**现在配置里是空的，所以评论区不会显示**，需要三步：
+> **状态：已关闭。** `hugo.yaml` 里 `params.comments.enabled` 是 `false`，
+> 文章页不会渲染评论区，也不会向 giscus.app 发任何请求。完整参数都留着，
+> 想开的时候按下面四步做即可。
+
+评论用 Giscus，基于 GitHub Discussions，免费且无广告。
 
 ### 1. 仓库必须是 public
 
@@ -134,7 +138,9 @@ Giscus 读的是公开仓库的 Discussions。
 打开 <https://giscus.app/zh-CN>，填入仓库名（如 `yourname/yourname.github.io`），
 页面会生成一段配置，里面包含 `data-repo-id` 和 `data-category-id` 两个值。
 
-把它们填进 `hugo.yaml`：
+### 4. 填进配置并打开开关
+
+把它们填进 `hugo.yaml`，同时把 `enabled` 改成 `true`：
 
 ```yaml
 params:
@@ -158,27 +164,24 @@ params:
 
 ## 六、部署到 GitHub Pages
 
+> 本仓库已初始化完成，`baseURL` 已设为 `https://everret-chen.github.io/`，
+> 下面第 1~2 步已就绪，实际只剩建远端仓库 + 推送 + 开 Pages。
+
 ### 1. 建仓库
 
-仓库名必须是 **`<你的用户名>.github.io`**（用户站，访问地址是根路径，最省事）。
+仓库名必须是 **`everret-chen.github.io`**（用户站，访问地址是根路径）。
 
-### 2. 改 baseURL
-
-`hugo.yaml` 第一行：
+### 2. baseURL（已配置）
 
 ```yaml
-baseURL: https://<你的用户名>.github.io/
+baseURL: https://everret-chen.github.io/
 ```
 
 ### 3. 推送
 
 ```powershell
 cd F:\project\1\blog
-git init
-git add .
-git commit -m "init: hugo + stack blog"
-git branch -M main
-git remote add origin https://github.com/<用户名>/<用户名>.github.io.git
+git remote add origin https://github.com/everret-chen/everret-chen.github.io.git
 git push -u origin main
 ```
 
@@ -186,7 +189,22 @@ git push -u origin main
 
 仓库 **Settings → Pages → Source** 选 **GitHub Actions**（不是 "Deploy from a branch"）。
 
-推送后 Actions 会自动构建，约 40 秒后访问 `https://<用户名>.github.io/`。
+推送后 Actions 会自动构建，约 40 秒后访问 `https://everret-chen.github.io/`。
+
+### 5. 提交身份
+
+仓库是公开的，commit 里的邮箱任何人可见。本项目已把 git 身份设为 noreply：
+
+```
+everret-chen <184364170+everret-chen@users.noreply.github.com>
+```
+
+换机器后记得重新设置，别再退回真实邮箱：
+
+```powershell
+git config user.name "everret-chen"
+git config user.email "184364170+everret-chen@users.noreply.github.com"
+```
 
 ---
 
