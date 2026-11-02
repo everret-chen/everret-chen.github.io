@@ -29,7 +29,7 @@ menu:
 
 ## 联系
 
-- **GitHub**：[你的 GitHub](https://github.com/)
-- **邮箱**：[you@example.com](mailto:you@example.com)
+- **GitHub**：[everret-chen](https://github.com/everret-chen)
+- **邮箱**：[2710895214@qq.com](mailto:2710895214@qq.com)
 
 > 本站文章采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。
