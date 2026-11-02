@@ -39,6 +39,11 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+        with:
+          # 关键：把 Pages 的 source 自动切换为 "GitHub Actions"。
+          # 仓库当前是 legacy（Deploy from a branch）模式，不切换的话
+          # 系统会用 Jekyll 构建并覆盖本工作流的产物，导致页面 404。
+          enablement: true
 
       - name: Install Hugo (extended)
         run: |
