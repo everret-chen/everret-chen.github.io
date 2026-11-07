@@ -5,7 +5,7 @@ slug: "{{ .File.ContentBaseName }}"
 date: {{ .Date }}
 lastmod: {{ .Date }}
 description: ""
-# 卡片封面：与 index.md 同目录的图片文件名
+# 首页卡片不显示封面图。如果某篇想单独加封面，取消下面这行注释即可。
 # image: cover.svg
 categories: []
 tags: []

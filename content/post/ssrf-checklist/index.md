@@ -4,7 +4,6 @@ slug: ssrf-checklist
 date: 2025-10-20
 lastmod: 2025-10-28
 description: 从参数识别、协议利用到绕过技巧的一份 SSRF 自查清单。
-image: cover.svg
 categories:
     - Web 安全
 tags:

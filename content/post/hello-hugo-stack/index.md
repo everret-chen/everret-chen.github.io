@@ -4,7 +4,6 @@ slug: hello-hugo-stack
 date: 2025-11-02
 lastmod: 2025-11-02
 description: 从零建站、配置、写文章到部署到 GitHub Pages 的完整记录。
-image: cover.svg
 categories:
     - 建站笔记
 tags:
