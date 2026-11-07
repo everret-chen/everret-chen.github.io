@@ -83,7 +83,8 @@ params:
     toc: true
     readingTime: true
     list:
-      showTags: true
+      # 卡片上不显示标签行（与参考站一致，只保留分类/标题/日期）
+      showTags: false
     license:
       enabled: true
       default: "本文采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议"
@@ -93,7 +94,7 @@ params:
       darkTheme: dark
 
   # -----------------------------------------------------------------
-  # 侧边栏小组件：首页显示搜索 / 归档 / 分类 / 标签云
+  # 侧边栏小组件（对齐参考站：搜索 / 归档 / 标签云）
   # -----------------------------------------------------------------
   widgets:
     homepage:
@@ -101,9 +102,6 @@ params:
       - type: archives
         params:
           limit: 5
-      - type: categories
-        params:
-          limit: 10
       - type: tag-cloud
         params:
           limit: 10
