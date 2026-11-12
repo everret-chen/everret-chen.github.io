@@ -162,6 +162,12 @@ markup:
   goldmark:
     renderer:
       unsafe: true          # 允许正文内嵌 HTML
+    parser:
+      # 启用 GitHub 风格的提示块语法：[!NOTE] / [!WARNING] 等
+      # 主题的 render-blockquote.html 会把它渲染成带图标的彩色区块
+      wrapStandAloneImageWithinParagraph: true
+    extensions:
+      blockquote: true
   highlight:
     noClasses: false
     lineNos: true
